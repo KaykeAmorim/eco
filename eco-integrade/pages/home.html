@@ -43,14 +43,14 @@
     </section>
 
     <section class="container">
-        <div class="card mx-auto">
+        <div id="expires" name="expires_1_2023-02-19T17:19:00" class="card mx-auto">
             <div class="card-header" style="display: grid;grid-template-columns: 1fr 1fr;">
                 <div>
                     <h4 class="text-secondaty">Nome do desafio</h4>
                 </div>
                 <div style="display: flex;justify-content: flex-end;align-items: center;">
                     <button id="dropbtn1" class="btn btn-light dropdown-toggle" type="button" onclick="dropdownClicked('dropcard1')">
-                        0/6
+                        0/2
                     </button>
                 </div>
             </div>
@@ -65,35 +65,23 @@
                             <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
                             <label>Desafio 2</label>
                         </div>
-                        <div style="display: inline-block;">
-                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
-                            <label>Desafio 3</label>
-                        </div>
-                        <div style="display: inline-block;">
-                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
-                            <label>Desafio 4</label>
-                        </div>
-                        <div style="display: inline-block;">
-                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
-                            <label>Desafio 5</label>
-                        </div>
-                        <div style="display: inline-block;">
-                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
-                            <label>Desafio 6</label>
-                        </div>
+                    </div>
+                </div>
+                <div class="bg-success">
+                    <div style="display: flex; flex-direction: row;align-items: center;">
+                        <img  class="p-3" src="../images/cronometro.png" style="width: 10%;">
+                        <strong>
+                            <h4 class="text-light p-3" id="timer_1"></h4>
+                        </strong>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
     </section>
 
-    <footer class="bg-success fixed-bottom p-3">
-        <div class="text-center">
-            <span class="text-light">&copy; Todos direitos reservados</span>
-        </div>
-    </footer>
+    
 </body>
 
 <script src="../js/home.js"></script>
-
+<script src="../js/time_helper.js"></script>
 </html>
