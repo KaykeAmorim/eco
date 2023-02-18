@@ -54,31 +54,33 @@
                     </button>
                 </div>
             </div>
-            <div class="card-body" id="dropcard1" style="display: none;">
-                <div style="display: flex;flex-direction: column;">
-                    <div style="display: inline-block;">
-                        <input type="checkbox" id="89743911872639812">
-                        <label>Desafio 1</label>
-                    </div>
-                    <div style="display: inline-block;">
-                        <input type="checkbox" id="89743911872639832">
-                        <label>Desafio 2</label>
-                    </div>
-                    <div style="display: inline-block;">
-                        <input type="checkbox" id="89743911872639832">
-                        <label>Desafio 3</label>
-                    </div>
-                    <div style="display: inline-block;">
-                        <input type="checkbox" id="89743911872639832">
-                        <label>Desafio 4</label>
-                    </div>
-                    <div style="display: inline-block;">
-                        <input type="checkbox" id="89743911872639832">
-                        <label>Desafio 5</label>
-                    </div>
-                    <div style="display: inline-block;">
-                        <input type="checkbox" id="89743911872639832">
-                        <label>Desafio 6</label>
+            <div id="dropcard1" style="display: none;">
+                <div class="card-body">
+                    <div style="display: flex;flex-direction: column;">
+                        <div style="display: inline-block;">
+                            <input type="checkbox" id="1_89743911872639812" onchange='handleChange(this);'>
+                            <label>Desafio 1</label>
+                        </div>
+                        <div style="display: inline-block;">
+                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
+                            <label>Desafio 2</label>
+                        </div>
+                        <div style="display: inline-block;">
+                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
+                            <label>Desafio 3</label>
+                        </div>
+                        <div style="display: inline-block;">
+                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
+                            <label>Desafio 4</label>
+                        </div>
+                        <div style="display: inline-block;">
+                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
+                            <label>Desafio 5</label>
+                        </div>
+                        <div style="display: inline-block;">
+                            <input type="checkbox" id="1_89743911872639832" onchange='handleChange(this);'>
+                            <label>Desafio 6</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,31 +94,6 @@
     </footer>
 </body>
 
-<script>
-
-    const dropdownFunctions = {
-        "none": dropdownShow,
-        "initial": dropdownHide
-    };
-
-    function dropdownClicked(cardId){
-        const card = document.getElementById(cardId);
-        const attibute = card.getAttribute('style');
-        const [att, display] = attibute.slice(0, -1).split(':');
-        const d = display.substring(1, display.length)
-        const func = dropdownFunctions[d];
-        func(cardId);
-    }
-
-    function dropdownShow(cardId){
-        const card = document.getElementById(cardId);
-        card.setAttribute('style', "display: initial;");
-    }
-
-    function dropdownHide(cardId){
-        const card = document.getElementById(cardId);
-        card.setAttribute('style', "display: none;");
-    }
-</script>
+<script src="../js/home.js"></script>
 
 </html>
