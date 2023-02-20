@@ -8,8 +8,12 @@ class Authenticate {
 
     generateToken(req, res, next){
         const email = req?.email;
+        const name = req?.name;
+        const createdDate = req?.createdDate;
         const token = jwt.sign({
-            email
+            email,
+            name,
+            createdDate
         }, config.JWTSecret, {expiresIn: '24h'});
         res.status(200);
         res.json({token});

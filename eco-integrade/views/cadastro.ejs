@@ -17,25 +17,26 @@
             <img src="../images/plant_ico.jpg" style="width: 25%;">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Insira seu nome" required>
+            <input id="name" type="text" class="form-control" placeholder="Insira seu nome" required>
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Insira seu email" required>
+            <input id="email" type="email" class="form-control" placeholder="Insira seu email" required>
         </div>
         <div class="form-group">
             <input id="password" type="password" class="form-control" placeholder="Insira sua senha" required>
         </div>
         <div class="form-group">
-            <input id="password_rep" type="password" class="form-control" placeholder="Repita a senha" required>
+            <input type="password" class="form-control" placeholder="Repita a senha" required>
         </div>
         <div class="form-group text-center">
-            <button id="btn" type="button" class="w-50 btn btn-success">ENTRAR</button>
+            <button id="btn" onclick="cadastro()" type="button" class="w-50 btn btn-success">ENTRAR</button>
         </div>
         <div class="text-center">
             <label>Já tem cadastro?</label>
-            <a href="./index.html">Login</a>
-          </div>
+            <a href="/login">Login</a>
+        </div>
     </form>
 </body>
-<script src="../js/cadastro.js"></script>
+<script src="/js/cadastro.js"></script>
+<script src="/js/request.js"></script>
 </html>

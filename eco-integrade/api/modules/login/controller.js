@@ -18,6 +18,9 @@ class LoginController{
             res.json({"erro": "Not Found User"});
         }
         else{
+            req.name = result.name;
+            req.score = result.score;
+            req.createdDate = result.createdDate;
             next();
         }
     }
