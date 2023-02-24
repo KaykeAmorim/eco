@@ -50,8 +50,8 @@
                         <h4 class="text-secondary"><%=challenge.category%></h4>
                     </div>
                     <div style="display: flex;justify-content: flex-end;align-items: center;">
-                        <button id="dropbtn1" class="btn btn-light dropdown-toggle" type="button" onclick="dropdownClicked('dropcard<%=challenge._id%>')">
-                            <%=0/challenge.tasks.length%>
+                        <button id="dropbtn<%=challenge._id%>" class="btn btn-light dropdown-toggle" type="button" onclick="dropdownClicked('dropcard<%=challenge._id%>')">
+                            <%=challenge.tasks.filter((task) => {return task.isCompleted == true}).length%>/<%=challenge.tasks.length%>
                         </button>
                     </div>
                 </div>

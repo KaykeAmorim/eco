@@ -26,15 +26,32 @@ function handleChange(element) {
     const taskId = element.getAttribute('id')
     const [cardId, TID] = taskId.split('_');
     const btn = document.getElementById(`dropbtn${cardId}`);
-    element.checked ? handleCheck(btn) : handleUncheck(btn);
+    console.log(btn)
+    element.checked ? handleCheck(btn, cardId, TID) : handleUncheck(btn, cardId, TID);
 }
 
-function handleCheck(btn){
+function handleCheck(btn, cardId, TID){
     const [qtdCompleted, qtd] = btn.innerText.split('/')
     btn.innerText = `${parseInt(qtdCompleted) + 1 }/${qtd}`
+    saveStatus("completed", cardId, TID)
 }
 
-function handleUncheck(btn) {
+function handleUncheck(btn, cardId, TID) {
     const [qtdCompleted, qtd] = btn.innerText.split('/')
     btn.innerText = `${parseInt(qtdCompleted) - 1 }/${qtd}`
+    saveStatus("incompleted", cardId, TID)
+}
+
+async function saveStatus(status, cardId, TID){
+    fetch(`/handleChange/${status}`, {
+        method: 'PUT',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': 'Beaurer '.concat(localStorage.getItem('token'))
+        },
+        body: JSON.stringify({
+            "challengeId": cardId,
+            "taskId": TID
+        })
+    })
 }

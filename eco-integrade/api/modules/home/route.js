@@ -9,4 +9,8 @@ route.get('/home',
  Factory.build(Authenticate, 'validateToken'),
  Factory.build(HomeController, 'renderPage'));
 
+ route.put('/handleChange/:status',
+ Factory.build(Authenticate, 'validateToken'),
+ Factory.build(HomeController, 'handleTaskChange'));
+
 module.exports = route;

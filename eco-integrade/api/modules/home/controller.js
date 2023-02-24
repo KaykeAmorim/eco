@@ -22,6 +22,29 @@ class HomeController {
         };
     }
 
+    async handleTaskChange(req, res, next){
+        const { status } = req.params;
+        const { email }  = req.data;
+        const { challengeId, taskId } = req.body;
+
+        const data = {
+            status,
+            email,
+            challengeId,
+            taskId
+        }
+
+        try{
+            await this.service.handleChange(data);
+            res.status(200);
+            res.json({ok: "ok"});
+        }
+        catch{
+            res.status(500);
+            res.json({error: "Internal server error"});
+        }
+    }
+
 }
 
 module.exports = {
