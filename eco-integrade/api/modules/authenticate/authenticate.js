@@ -37,7 +37,7 @@ class Authenticate {
         }
         catch{
             res.status(401);
-            res.json({"erro": "Não Autorizado"});
+            res.redirect('/login');
         }
         
     }
