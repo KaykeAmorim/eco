@@ -20,7 +20,6 @@ class RegisterController {
         else{
             req.email = email;
             req.name = name;
-            req.score = 0;
             req.createdDate = Date.parse(new Date().toUTCString());
             next();
         }

@@ -1,13 +1,13 @@
 function buildRequest(url, method, headers_data, data){
     const headers = getHeader(headers_data);
-    return new Request(url,{method, headers, body: JSON.stringify(data)});
+    return new Request(url, {method, headers, body: JSON.stringify(data)});
 }
 
 function getHeader(headers_data){
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", `Beaurer ${headers_data?.token}`);
-    return myHeaders;
+    return {
+        "Content-Type": "application/json",
+        "Authorization": `Beaurer ${headers_data?.token}`
+    };
 }
 
 async function sendRequest(req){
@@ -27,7 +27,7 @@ async function login(){
     const request = buildRequest('/login', 'POST', undefined, data);
     const response = await sendRequest(request);
     response.token ? localStorage.setItem('token', response.token) : alert('Usuário ou senha incorretos');
-    //home();
+    toHome();
 }
 
 async function cadastro(){
@@ -43,12 +43,10 @@ async function cadastro(){
     const request = buildRequest('/cadastro', 'POST', undefined, data);
     const response = await sendRequest(request);
     response.token ? localStorage.setItem('token', response.token) : alert('Usuário existente');
-    //home();
+    toHome();
 }
 
 
-function home(){
-    const token = localStorage.getItem('token');
-    const request = buildRequest('/home', 'GET', {token}, undefined);
-    sendRequest(request);
+function toHome(){
+    location.href = `/home`;
 }

@@ -6,6 +6,7 @@ const Cryptograph = require('../../config/cryptograph');
 const { Authenticate } = require('../authenticate/authenticate');
 
 route.get('/login', Factory.build(LoginController, 'renderPage'));
+
 route.post('/login', 
     Cryptograph.password, 
     Factory.build(LoginController, 'consultUser'),

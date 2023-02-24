@@ -6,6 +6,12 @@ class Authenticate {
 
     }
 
+    getAuthByCookies(req, res, next){
+        const {token} = req.cookies;
+        req.headers.authorization = 'Beaurer '.concat(token);
+        next();
+    }
+
     generateToken(req, res, next){
         const email = req?.email;
         const name = req?.name;
@@ -13,21 +19,27 @@ class Authenticate {
         const token = jwt.sign({
             email,
             name,
-            createdDate
+            createdDate,
+            
         }, config.JWTSecret, {expiresIn: '24h'});
         res.status(200);
+        res.cookie('token', token, {maxAge: 86400000});
         res.json({token});
         next();
     }
 
     validateToken(req, res, next){
-        const [auth, token] = req['headers']['authentication'].split(' ');
-        const data = auth === 'Beaurer' ?  this.verifyToken(token) : undefined;
-        req = {
-            ...req,
-            data
+        try{
+            const [auth, token] = req['headers']['authorization'].split(' ');
+            const data = auth === 'Beaurer' ?  this.verifyToken(token) : undefined;
+            req.data = data
+            next();
         }
-        next();
+        catch{
+            res.status(401);
+            res.json({"erro": "Não Autorizado"});
+        }
+        
     }
 
     verifyToken(token){

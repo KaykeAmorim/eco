@@ -19,7 +19,7 @@ class LoginController{
         }
         else{
             req.name = result.name;
-            req.score = result.score;
+            req.email = result.email;
             req.createdDate = result.createdDate;
             next();
         }
